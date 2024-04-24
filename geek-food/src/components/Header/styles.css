@@ -1,0 +1,4 @@
+.navbarItem {
+  display: flex;
+  justify-content: space-between;
+}
