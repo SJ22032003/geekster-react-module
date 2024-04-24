@@ -17,6 +17,7 @@ const MyPara = () => {
 
 const MainContainer = () => {
   const arr = ["alex", "sam", "clark", "sahil", "sj"];
+
   return (
     <div
       id="main-container"
@@ -24,8 +25,12 @@ const MainContainer = () => {
     >
       <Title />
 
-      {arr.map((name) => {
-        return <p>{name}</p>;
+      {arr.map((name, index) => {
+        if(index === 0) {
+          return <a href={"/" + index}>{name}</a>
+        }else {
+          return <p>{name}</p>
+        }
       })}
     </div>
   );
