@@ -2,21 +2,18 @@ const Title = () => {
   return <h1>Learn Web Development</h1>;
 };
 
-const MyPara = () => {
+const MyPara = (props) => {
   return (
     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quis,
-      esse eligendi accusamus dignissimos quaerat fugit nostrum nihil tempora
-      ad. Illum ab tempora ipsum. Error porro vel iure, sunt, doloribus
-      consectetur, praesentium blanditiis voluptatem ullam voluptatibus debitis
-      assumenda totam quo minus voluptates vero. Exercitationem repellat,
-      dolores corporis quas hic quasi?
+      {props.le}
     </p>
   );
 };
 
 const MainContainer = () => {
-  const arr = ["alex", "sam", "clark", "sahil", "sj"];
+  // const arr = ["alex", "sam", "clark", "sahil", "sj"];
+
+  const paras = ["pa1", "para2"]
 
   return (
     <div
@@ -25,13 +22,18 @@ const MainContainer = () => {
     >
       <Title />
 
-      {arr.map((name, index) => {
+      {
+        paras.map(para => <MyPara le={para} />)
+      }
+
+
+      {/* {arr.map((name, index) => {
         if(index === 0) {
           return <a href={"/" + index}>{name}</a>
         }else {
           return <p>{name}</p>
         }
-      })}
+      })} */}
     </div>
   );
 };
