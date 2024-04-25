@@ -19,7 +19,7 @@ function Header() {
           <h2>GeekFood</h2>
         </section>
         <section>
-          <ul>
+          <ul className={`${styles["horizontal-list"]} ${styles.removeListStyle}`}>
             {navItem.map((item, index) => (
               <li key={index}>{item}</li>
             ))}

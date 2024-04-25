@@ -2,3 +2,12 @@
   display: flex;
   align-items: center;
 }
+
+.horizontal-list {
+  display: flex;
+  gap: 20px;
+}
+
+.removeListStyle {
+  list-style: none;
+}
