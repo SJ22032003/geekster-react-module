@@ -1,11 +1,13 @@
-function Profile(props) {
-  console.log(props);
+import Card from "../Quote/Card";
+
+function Profile({ name = "SJ", age, isAdult }) {
   return (
     <div id="profile-container">
       <h2>Profile</h2>
-      <p>{props.name}</p>
-      <p>{props.age}</p>
-      <p>Is user adult  = { props.isAdult ? "yes": "no" }</p>
+      <p>{name}</p>
+      <p>{age}</p>
+      <p>Is user adult  = { isAdult ? "yes": "no" }</p>
+      <Card quote={"hi from profile"} author="geekster" />
     </div>
   )
 }
