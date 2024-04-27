@@ -9,7 +9,7 @@ function App() {
 
   const arr = ["alex", ["sam", ["clear", "amazon"]]]; // ["alex", "sam", "clear", "amazon"]
 
-  console.log(arr.flat(2))
+  console.log(arr.flat(2));
 
   const obj = {
     name: "sj",
@@ -31,17 +31,39 @@ function App() {
     address: {
       locality: { street },
     },
-    address: { locality }
+    address: { locality },
   } = obj;
 
   // console.log(name, locality, street);
 
   return (
     <>
-      <Loader />
-      <Home upperFunc={upperCaseString} />
+      <Header />
+      <MyButton label="Search" customStyles={{ width: "250px"}} />
+      <MyButton
+        label="Know More"
+        customStyles={{ backgroundColor: "#fff", color: "pink" }}
+      />
+      {/* <Loader /> */}
+      {/* <Home upperFunc={upperCaseString} /> */}
     </>
   );
 }
 
 export default App;
+
+const MyButton = ({ label, customStyles = {} }) => {
+  return (
+    <>
+      <button
+      // className={styles.}
+        style={{
+      
+          ...customStyles,
+        }}
+      >
+        {label}
+      </button>
+    </>
+  );
+};
