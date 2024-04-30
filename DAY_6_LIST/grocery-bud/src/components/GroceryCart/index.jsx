@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import ListItem from "./ListItem";
 
 function GroceryCart() {
+
   const [groceryInput, setGroceryInput] = useState("");
   const [groceryList, setGroceryList] = useState([]);
 
@@ -34,12 +35,11 @@ function GroceryCart() {
       {/* Display our list */}
       <section>
         <ul>
-          {
-            groceryList.map((el, index) => <ListItem key={index} label={el.item} />)
-          }
+          {groceryList.map((el, index) => (
+            <ListItem key={index} label={el.item} />
+          ))}
         </ul>
       </section>
-
     </div>
   );
 }
