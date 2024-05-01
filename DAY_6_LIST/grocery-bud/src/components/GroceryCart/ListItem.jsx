@@ -9,7 +9,11 @@ function ListItem({ label = "", id, delFunc, isChecked, checkedFunc }) {
           alignItems: "center",
         }}
       >
-        <input type="checkbox" onChange={() => checkedFunc(id)} />
+        <input
+          type="checkbox"
+          onChange={() => checkedFunc(id)}
+          defaultChecked={isChecked}
+        />
         <p style={{ textDecoration: isChecked ? "line-through" : "" }}>
           {label}
         </p>

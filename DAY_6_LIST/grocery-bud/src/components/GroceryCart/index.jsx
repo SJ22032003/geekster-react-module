@@ -5,11 +5,15 @@ import ListItem from "./ListItem";
 
 function GroceryCart() {
   const [groceryInput, setGroceryInput] = useState("");
-  const [groceryList, setGroceryList] = useState([]);
-
+  const [groceryList, setGroceryList] = useState(
+    JSON.parse(localStorage.getItem("grocery-list")) || []
+  ); // null || []
   const handleInputChange = (e) => {
     setGroceryInput(e.target.value);
   };
+
+  const updateLocalStorage = (updatedArr) =>
+    localStorage.setItem("grocery-list", JSON.stringify(updatedArr));
 
   const insertGroceryItem = () => {
     if (groceryInput.trim() === "") {
@@ -19,23 +23,32 @@ function GroceryCart() {
       return;
     }
 
-    // inserting array
-    setGroceryList([
+    // newArr
+    const newArr = [
       ...groceryList,
       { item: groceryInput, id: uuidv4(), isChecked: false },
-    ]);
+    ];
+
+    // inserting array
+    setGroceryList(newArr);
 
     // clear input
     setGroceryInput("");
 
     // toast notification
     toast.success("You added a grocery!!!");
+
+    // localstorage
+    updateLocalStorage(newArr);
   };
 
   const deleteListItem = (id) => {
     const newFilteredArr = groceryList.filter((item) => item.id !== id);
     setGroceryList(newFilteredArr);
     toast.success("Deleted list item");
+    // localstorage
+    console.log(newFilteredArr)
+    updateLocalStorage(newFilteredArr);
   };
 
   const checkOurItem = (id) => {
@@ -48,6 +61,7 @@ function GroceryCart() {
 
     setGroceryList(newFilteredArr);
     toast.success("Item checked");
+    updateLocalStorage(newFilteredArr);
   };
 
   return (
