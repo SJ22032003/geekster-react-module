@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 
 function App() {
+
   const upperCaseString = (str) => {
     return str.toUpperCase();
   };
