@@ -22,25 +22,30 @@ function App() {
 
   // filter the userList
   const filteringUserList = () => {
-    const filteredList = dataList.filter(user => user.name.startsWith(userInput));
-    setUserList(filteredList);
-  }
+    const filteredUserList = dataList.filter((user) => {
+      return user.name.toLowerCase().startsWith(userInput.toLowerCase());
+    });
+    setUserList(filteredUserList);
+  };
 
   useEffect(() => {
     getUserData();
   }, []);
 
   useEffect(() => {
-    filteringUserList()
-  }, [userInput])
+    filteringUserList();
+  }, [userInput]);
 
   return (
     <>
       <main>
         {/* input for searching names */}
         <section>
-          <input type="text" placeholder="search for users" value={userInput}
-            onChange={(e) => setUserInput(e.target.value) }
+          <input
+            type="text"
+            placeholder="search for users"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
           />
         </section>
         {/* mapping my users */}
