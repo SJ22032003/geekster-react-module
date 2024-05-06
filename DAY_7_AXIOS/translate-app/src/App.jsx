@@ -1,8 +1,10 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { supportedLanguages } from "./components/data";
 import DropDown from "./components/DropDown";
 import axios from "axios";
+
+// https://rapidapi.com/dickyagustin/api/text-translator2/
 
 function App() {
   const [sourceLang, setSourceLang] = useState("");
@@ -30,13 +32,9 @@ function App() {
       },
     })
 
-    console.log(resp)
+    console.log(resp.data.data.translatedText)
 
   }
-
-  useEffect(() => {
-    console.log(sourceLang, tragetLang);
-  }, [sourceLang, tragetLang]);
 
   return (
     <>
