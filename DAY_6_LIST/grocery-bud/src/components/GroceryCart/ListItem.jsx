@@ -1,5 +1,5 @@
-function ListItem({ label = "", id, delFunc, isChecked, checkedFunc }) {
-  // console.log(isChecked);
+function ListItem({ label = "", id, delFunc, isChecked, checkedFunc, updateFunc }) {
+
   return (
     <>
       <li
@@ -18,6 +18,7 @@ function ListItem({ label = "", id, delFunc, isChecked, checkedFunc }) {
           {label}
         </p>
         <button onClick={() => delFunc(id)}>Delete</button>
+        <button onClick={() => updateFunc(id)}>Update</button>
       </li>
     </>
   );

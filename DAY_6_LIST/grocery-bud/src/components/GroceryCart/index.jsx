@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 import ListItem from "./ListItem";
+import UpdateItem from "./UpdateItem";
 
 function GroceryCart() {
   const [groceryInput, setGroceryInput] = useState("");
@@ -26,7 +27,7 @@ function GroceryCart() {
     // newArr
     const newArr = [
       ...groceryList,
-      { item: groceryInput, id: uuidv4(), isChecked: false },
+      { item: groceryInput, id: uuidv4(), isChecked: false, isEditing: false },
     ];
 
     // inserting array
@@ -47,7 +48,7 @@ function GroceryCart() {
     setGroceryList(newFilteredArr);
     toast.success("Deleted list item");
     // localstorage
-    console.log(newFilteredArr)
+    console.log(newFilteredArr);
     updateLocalStorage(newFilteredArr);
   };
 
@@ -64,6 +65,29 @@ function GroceryCart() {
     updateLocalStorage(newFilteredArr);
   };
 
+  const allowGroceryItemToUpdate = (id) => {
+    const editAllowedList = groceryList.map(item => {
+      if(item.id === id) {
+        item.isEditing = true;
+      }
+      return item;
+    })
+    setGroceryList(editAllowedList);
+  }
+
+  const updateGroceryItem = (val, id) => {
+    const updatedGroceryList = groceryList.map((todo) => {
+      if (todo.id === id) {
+        todo.item = val;
+        todo.isEditing = false;
+      }
+      return todo;
+    });
+    setGroceryList(updatedGroceryList);
+    toast.success("Todo updated");
+    updateLocalStorage(updatedGroceryList);
+  };
+
   return (
     <div>
       <h3>Grocery Bud</h3>
@@ -76,16 +100,25 @@ function GroceryCart() {
       {/* Display our list */}
       <section>
         <ul>
-          {groceryList.map((el) => (
-            <ListItem
-              key={el.id}
-              label={el.item}
-              id={el.id}
-              isChecked={el.isChecked}
-              delFunc={deleteListItem}
-              checkedFunc={checkOurItem}
-            />
-          ))}
+          {groceryList.map((el) => {
+            return el.isEditing ? (
+              <UpdateItem
+                id={el.id}
+                updateVal={el.item}
+                updateGroceryItem={updateGroceryItem}
+              />
+            ) : (
+              <ListItem
+                key={el.id}
+                label={el.item}
+                id={el.id}
+                isChecked={el.isChecked}
+                delFunc={deleteListItem}
+                checkedFunc={checkOurItem}
+                updateFunc={allowGroceryItemToUpdate}
+              />
+            );
+          })}
         </ul>
       </section>
     </div>
