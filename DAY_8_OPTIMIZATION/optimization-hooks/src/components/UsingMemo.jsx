@@ -12,11 +12,11 @@ function UsingMemo() {
     setCount2(count2 + 1);
   };
 
-  const isEven = () => {
-    let i = 0;
-    while (i < 1000000000) i++;
-    return count % 2 === 0;
-  };
+  // const isEven = () => {
+  //   let i = 0;
+  //   while (i < 2000000000) i++;
+  //   return count % 2 === 0;
+  // };
 
   // Memoized
   // will return value
@@ -31,7 +31,7 @@ function UsingMemo() {
       <section>
         <h1>Count: {count}</h1>
         <h3>{isEvenMemoized ? "Even": "Odd"}</h3>
-        <h3>{isEven() ? "Even" : "Odd"}</h3>
+        {/* <h3>{isEven() ? "Even" : "Odd"}</h3> */}
         <button onClick={handleCount}>Increment</button>
       </section>
       <section>
