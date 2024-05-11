@@ -13,6 +13,7 @@ This repository is a collection of classwork, homework, and revision materials f
 - `DAY_7_AXIOS/`: Learn how to make HTTP requests in React using Axios.
 - `DAY_8_OPTIMIZATION/`: Learn about optimization techniques in React.
 - `REVISION/`: Revision materials and interview questions for self-study.
+- `PROJECT/`: A project to test your React skills.
 
 ## Getting Started
 
