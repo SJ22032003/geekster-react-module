@@ -5,3 +5,9 @@ optimization techniques (Important for interviews)
 -- useMemo
 
 Routing
+
+-- react-router-dom
+-- spa (single page application)
+-- nested routing
+-- outlet
+-- link
