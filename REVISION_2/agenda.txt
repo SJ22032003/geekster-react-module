@@ -1,0 +1,7 @@
+optimization techniques
+
+-- react memo
+-- useCallback
+-- useMemo
+
+Routing
