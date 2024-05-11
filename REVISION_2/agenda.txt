@@ -1,4 +1,4 @@
-optimization techniques
+optimization techniques (Important for interviews)
 
 -- react memo
 -- useCallback

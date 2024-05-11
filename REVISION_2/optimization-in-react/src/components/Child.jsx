@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-function Child({ count }) {
+function Child({ count, handleCount, profile }) {
   console.log("Child render");
 
   return (
