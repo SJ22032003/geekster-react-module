@@ -1,7 +1,13 @@
-optimization techniques
+optimization techniques (Important for interviews)
 
 -- react memo
 -- useCallback
 -- useMemo
 
 Routing
+
+-- react-router-dom
+-- spa (single page application)
+-- nested routing
+-- outlet
+-- link
