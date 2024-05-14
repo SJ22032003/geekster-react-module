@@ -26,7 +26,7 @@ function App() {
     await query({"inputs": searchImg }).then((response) => {
       const imgSrc = URL.createObjectURL(response)
       setGeneratedImg(imgSrc);
-    });
+    }).catch(err => console.log(err))
   }
 
   return (
