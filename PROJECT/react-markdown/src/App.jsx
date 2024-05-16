@@ -1,28 +1,26 @@
 import "./App.css";
 import Markdown from "react-markdown";
+import  { useState } from "react";
+import MarkdownEditor from '@uiw/react-markdown-editor';
+
 
 function App() {
-  const markdown = `
-  
-  # this is heading
-  
-  A paragraph with *emphasis* and **strong importance**.
 
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-
-* Lists
-* [ ] todo
-* [x] done
-
-A table:
-
-| a | b |
-| - | - |
-`;
+  const [markdown, setMarkdown] = useState(``);
 
   return (
     <>
+      {/* <textarea name="mark-dwon" id="" cols="30" rows="5" onChange={(e) => setMarkdown(e.target.value)} value={markdown}></textarea> */}
+     
+      <MarkdownEditor
+      value={markdown}
+      onChange={(value, _) => {
+        setMarkdown(value)
+      }}
+    />
+
       <Markdown>{markdown}</Markdown>
+
     </>
   );
 }
