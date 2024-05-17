@@ -61,6 +61,9 @@ function App() {
   };
 
   return (
+    <>
+    <center><h1>TEST:  CREATE DRAG n DROP </h1></center>
+    <h4>30 Minutes duration</h4>
     <main style={{ display: "flex", justifyContent: "space-evenly" }}>
       <Todo
         data={tasksData}
@@ -78,6 +81,7 @@ function App() {
         onDrop={handleDrop}
       />
     </main>
+    </>
   );
 }
 
