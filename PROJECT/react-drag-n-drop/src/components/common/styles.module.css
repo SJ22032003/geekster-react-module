@@ -1,0 +1,28 @@
+.container {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dragItems {
+  display: flex;
+  border: 2px solid #000;
+  padding: 10px 20px;
+  cursor: grab;
+}
+
+.dragItems:active {
+  opacity: 1;
+}
+
+.visibleArea {
+  height: 30px;
+  border: 2px dashed #fff;
+}
+
+.noDropArea {
+  opacity: 0;
+  height: 0;
+}
