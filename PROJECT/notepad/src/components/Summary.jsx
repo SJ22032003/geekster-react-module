@@ -1,9 +1,9 @@
-function Summary() {
+function Summary({ state }) {
   return (
     <div>
-      <p>Number of words</p>
-      <p>Number of characters</p>
-      <p>Reading Time</p>
+      <p>Number of words : {state.numWords}</p>
+      <p>Number of characters : {state.numChars}</p>
+      <p>Reading Time : {state.readTime}</p>
     </div>
   );
 }
