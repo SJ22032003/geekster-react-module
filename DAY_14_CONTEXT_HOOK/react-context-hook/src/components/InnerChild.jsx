@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { UserContext } from "../STATE";
+import { UserContext } from "../App";
 
 function InnerChild() {
 
-  const { state } = useContext(UserContext);
+  const { name, age } = useContext(UserContext);
 
-  return <div>InnerChild youngest child name is {state.name}</div>;
+  return <div>InnerChild youngest child name is {name}</div>;
 }
 
 export default InnerChild;

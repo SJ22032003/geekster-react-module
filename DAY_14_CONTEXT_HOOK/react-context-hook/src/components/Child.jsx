@@ -1,25 +1,18 @@
-import { UserContext } from "../STATE";
 import InnerChild from "./InnerChild";
 import { useContext } from "react";
+import { UserContext } from "../App";
 
 function Child() {
 
-  const { state, dispatch} = useContext(UserContext);
-
-  const handleEmailChange = () => {
-    dispatch({
-      type: "SET_EMAIL",
-      payload: "new-email@gmail.com"
-    })
-  }
+  const { setName } = useContext(UserContext);
 
   return (
     <div>
       Child
 
-      user email is { state.email }
-
-      <button onClick={handleEmailChange}>Change email</button>
+    <button
+      onClick={() => setName("Geekster")}
+    >Change name</button>
 
       <InnerChild  />
     </div>

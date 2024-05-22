@@ -1,18 +1,18 @@
-import { useReducer } from 'react';
-import { UserContext, initialState, reducer } from './STATE';
+import { useState, createContext } from 'react';
 import './App.css'
-
 import Parent from './components/Parent'
 
+export const UserContext = createContext();
 
 function App() {
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [name, setName] = useState("sahil")
 
   return (
     <>
-    <UserContext.Provider value={{ state, dispatch }}>
-      <Parent />
+    <UserContext.Provider value={{ name, setName,  }}>
+      <Parent  />
     </UserContext.Provider>
     </>
   )
