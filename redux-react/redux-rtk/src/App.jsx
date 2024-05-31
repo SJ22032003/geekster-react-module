@@ -13,7 +13,7 @@ function App() {
       <h2>{demo ? "yes" : "no"}</h2>
       <button onClick={() => dispatch(increment())}>Increase</button>
 
-      <button onClick={() => dispatch(incrementByAmount(10))}>
+      <button onClick={() => dispatch(incrementByAmount({ count: 10, demo: false }))}>
         increase by 10
       </button>
     </>
