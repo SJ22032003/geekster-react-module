@@ -1,11 +1,13 @@
 import './App.css'
-import Accordion from './components/Accordion'
+// import Accordion from './components/Accordion'
+import Tab from './components/Tab'
 
 function App() {
   
   return (
     <>
-      <Accordion />
+      {/* <Accordion /> */}
+      <Tab />
     </>
   )
 }
