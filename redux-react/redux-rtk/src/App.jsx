@@ -10,12 +10,23 @@ function App() {
 
   const dispatch = useDispatch();
 
+  const handleUsers = () => {
+    dispatch(getUsersFromApi());
+  };
+
+  const { users, loading, error } = useSelector((state) => state.user);
+
+  console.log(users, loading, error);
+
   return (
     <>
       <h1>count is here {value}</h1>
       <h2>{demo ? "yes" : "no"}</h2>
       <button onClick={() => dispatch(increment())}>Increase</button>
 
+      <button
+        onClick={() => dispatch(incrementByAmount({ count: 10, demo: false }))}
+      >
       <button
         onClick={() => dispatch(incrementByAmount({ count: 10, demo: false }))}
       >
